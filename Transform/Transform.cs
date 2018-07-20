@@ -6,8 +6,13 @@ namespace Transform
 {
     public static class Transform 
     {
-        public static void Map()
+        public static int[] Map(this int[] x, Func<int, int> transform)
         {
+            for(int i = 0; i<x.Length; i++)
+            {
+                x[i] = transform(x[i]);
+            }
+            return x;
             throw new NotImplementedException();
         }
     }
