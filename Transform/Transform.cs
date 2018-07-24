@@ -6,14 +6,9 @@ namespace Transform
 {
     public static class Transform 
     {
-        public static int[] Map(this int[] x, Func<int, int> transform)
+        public static IEnumerable<TResult> Map<TSource, TResult>(this IEnumerable<TSource> x, Func<TSource, TResult> transform)
         {
-            for(int i = 0; i<x.Length; i++)
-            {
-                x[i] = transform(x[i]);
-            }
-            return x;
-            throw new NotImplementedException();
+            return x.Select(transform);
         }
     }
 }
